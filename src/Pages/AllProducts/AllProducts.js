@@ -7,7 +7,7 @@ const AllProducts = () => {
   const [allProducts, setAllProducts] = useState([]);
   
   useEffect(() => {
-    fetch("http://localhost:5000/allProducts")
+    fetch("https://polar-gorge-22890.herokuapp.com/allProducts")
       .then((res) => res.json())
       .then((data) => setAllProducts(data));
   }, []);
@@ -15,7 +15,7 @@ const AllProducts = () => {
 //   Single product 
   const handleSingleProduct = (id)=>{
     console.log(id);
-    fetch(`http://localhost:5000/product/${id}`, {
+    fetch(`https://polar-gorge-22890.herokuapp.com/${id}`, {
       method: "GET",
       // headers: { "content-type": "application/json" },
       // body: JSON.stringify({id})

@@ -18,9 +18,11 @@ const AddProducts = () => {
         headers: { "content-type": "application/json" },
         body: JSON.stringify(data),
       })
-      .then(res =>{
+      .then(res=> res.json())
+      .then(data => {
           alert("product added successfully!!")
           reset();
+          console.log(data)
       })
       
     };

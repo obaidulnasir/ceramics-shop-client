@@ -4,7 +4,7 @@ import { Card, Col, Container, Row } from "react-bootstrap";
 const Products = () => {
   const [products, setProducts]= useState([]);
   useEffect(()=>{
-    fetch("http://localhost:5000/allProducts")
+    fetch("https://polar-gorge-22890.herokuapp.com/allProducts")
     .then(res => res.json())
     .then(data => setProducts(data));
   },[])
