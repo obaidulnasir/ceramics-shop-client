@@ -8,7 +8,7 @@ const MyOrder = () => {
 //   const [control, setControl] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myOrder/${user.email}`)
+    fetch(`https://polar-gorge-22890.herokuapp.com/myOrder/${user.email}`)
       .then((res) => res.json())
       .then((data) => setMyOrder(data));
   }, [user?.email, myOrder]);
@@ -17,7 +17,7 @@ const MyOrder = () => {
   //Delete Events
   const handleDelete = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/deleteEvent/${id}`, {
+    fetch(`https://polar-gorge-22890.herokuapp.com/deleteOrder/${id}`, {
       method: "DELETE",
       headers: { "content-type": "application/json" },
     })

@@ -14,7 +14,7 @@ const Products = () => {
       <h3>New Collection</h3>
       <Container>
         <Row xs={1} md={3} className="g-4">
-          {products.map(pd=>(
+          {products.slice(4, 10).map(pd=>(
             <Col key={pd._insertId}>
               <Card>
                 <Card.Img variant="top" src={pd.img} />

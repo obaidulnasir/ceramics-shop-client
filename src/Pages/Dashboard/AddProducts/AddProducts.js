@@ -11,27 +11,27 @@ const AddProducts = () => {
     formState: { errors },
   } = useForm();
 
-
   const onSubmit = (data) => {
-      fetch("http://localhost:5000/addProduct", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(data),
-      })
-      .then(res=> res.json())
-      .then(data => {
-          alert("product added successfully!!")
-          reset();
-          console.log(data)
-      })
-      
-    };
+    fetch("https://polar-gorge-22890.herokuapp.com/addProduct", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        alert("product added successfully!!");
+        reset();
+        console.log(data);
+      });
+  };
   return (
     <div>
       <Container>
         <div className="row w-50 mx-auto">
+          <h3 className="text-center">Add Product</h3>
+          <br />
           <div className="col">
-          <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-group">
                 <label>Product Name</label>
                 <input
@@ -62,12 +62,18 @@ const AddProducts = () => {
               </div>
               <div className="form-group">
                 <label>Description</label>
-                <textarea class="form-control" rows="3" {...register("description")} >
-
-                </textarea>
+                <textarea
+                  class="form-control"
+                  rows="3"
+                  {...register("description")}
+                ></textarea>
               </div>
 
-              <input type="submit" value="Register" />
+              <input
+                className="btn btn-outline-dark my-3"
+                type="submit"
+                value="Add Product"
+              />
             </form>
           </div>
         </div>

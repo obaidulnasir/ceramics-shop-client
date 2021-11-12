@@ -13,7 +13,7 @@ import useAuth from "../../../hooks/useAuth";
 
 const Dashboard = () => {
   let { path, url } = useRouteMatch();
-  const { admin } = useAuth();
+  const { admin, user} = useAuth();
   return (
     <div className="">
       <Navigation></Navigation>
@@ -22,17 +22,17 @@ const Dashboard = () => {
         <div>
           <div className="dashboard-container ">
             <div className="row">
-              <div className="col-md-3 col-sm-3">
+              <div className="col-md-3 h-100 col-sm-3">
                 <div className="dashboard">
-                  <h5>Dashboard</h5>
-                  <Link to={`${url}`}>
-                    <li className="dashboard-menu mt-5">My Order</li>
+                  <h5>{user.email}</h5>
+                  <Link className="text-decoration-none" to={`${url}`}>
+                    <li className="dashboard-menu">My Order</li>
                   </Link>
                   <Link to={`${url}/pay`}>
-                    <li className="dashboard-menu mt-5">Pay Now</li>
+                    <li className="dashboard-menu">Pay Now</li>
                   </Link>
                   <Link to={`${url}/addReview`}>
-                    <li className="dashboard-menu mt-5">Add Review</li>
+                    <li className="dashboard-menu">Add Review</li>
                   </Link>
                   {admin && (
                     <div>

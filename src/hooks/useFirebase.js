@@ -97,7 +97,7 @@ const useFirebase = () => {
   ================================ */
   const handleRegisterUserInfo= (email)=>{
     console.log(email)
-    fetch("http://localhost:5000/addCustomer", {
+    fetch("https://polar-gorge-22890.herokuapp.com/addCustomer", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ email }),
@@ -110,7 +110,7 @@ const useFirebase = () => {
   ============================= */
 
   useEffect(()=>{
-    fetch(`http://localhost:5000/customer/${user?.email}`)
+    fetch(`https://polar-gorge-22890.herokuapp.com/customer/${user?.email}`)
     .then(res=> res.json())
     .then(data => isAdmin(data.admin))
   },[user.email])

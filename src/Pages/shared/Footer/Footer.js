@@ -8,8 +8,7 @@ const Footer = () => {
           <div className="col-md-4">
             <h4>CeramicsShop</h4>
             <p className="fs-6">
-            Come explore beaches, old growth forests, tea plantations and swarming cities on a private Bangladesh tour with a friendly local guide.
-            </p>
+            We believe that our beautiful collection should be available for every home. Shop your favorite handmade stoneware online by adding each item to your online shopping basket. If you are looking for a cute gift for a friend, we make sure to gift wrap your items with no extra charges.</p>
           </div>
           <div className="col-md-4">
             {/* <ul>

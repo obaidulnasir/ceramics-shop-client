@@ -12,7 +12,7 @@ const MakeAdmin = () => {
     
       const onSubmit=(data)=>{
         console.log(data);
-        fetch("http://localhost:5000/makeAdmin", {
+        fetch("https://polar-gorge-22890.herokuapp.com/makeAdmin", {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -40,12 +40,10 @@ const MakeAdmin = () => {
                 defaultValue=""
                 {...register("email", { required: true })}
               />
-              {/* <small id="emailHelp" className="form-text text-muted">
-                * We'll never share your email with anyone else.
-              </small> */}
+              
             </div>
 
-            <input type="submit" value="Make Admin" />
+            <input className="btn btn-outline-dark my-3" type="submit" value="Make Admin" />
           </form>
         </div>
       </Container>
