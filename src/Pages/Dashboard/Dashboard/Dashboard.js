@@ -6,7 +6,10 @@ import AddProducts from "../AddProducts/AddProducts";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
 import ManageOrder from "../ManageOrder/ManageOrder";
 import MyOrder from "../MyOrder/MyOrder";
+import AddReview from "../AddReview/AddReview";
+import PayNow from "../PayNow/PayNow";
 import "./Dashboard.css";
+
 
 const Dashboard = () => {
   let { path, url } = useRouteMatch();
@@ -19,11 +22,17 @@ const Dashboard = () => {
           <div>
             <div className="dashboard-container ">
               <div className="row">
-                <div className="col-md-3 ">
+                <div className="col-md-3 col-sm-3">
                   <div className="dashboard">
                     <h5>Dashboard</h5>
                     <Link to={`${url}`}>
                       <li className="dashboard-menu mt-5">My Order</li>
+                    </Link>
+                    <Link to={`${url}/pay`}>
+                      <li className="dashboard-menu mt-5">Pay Now</li>
+                    </Link>
+                    <Link to={`${url}/addReview`}>
+                      <li className="dashboard-menu mt-5">Add Review</li>
                     </Link>
                     <Link to={`${url}/manageOrder`}>
                         <li className="dashboard-menu">Manage Order</li>
@@ -53,10 +62,16 @@ const Dashboard = () => {
                     </div> */}
                   </div>
                 </div>
-                <div className="col-md-9">
+                <div className="col-md-9 col-sm-9">
                   <Switch>
                     <Route exact path={path}>
                         <MyOrder></MyOrder>
+                    </Route>
+                    <Route exact path={`${path}/addReview`}>
+                    <AddReview></AddReview>
+                    </Route>
+                    <Route exact path={`${path}/pay`}>
+                    <PayNow></PayNow>
                     </Route>
                     <Route exact path={`${path}/manageOrder`}>
                         <ManageOrder></ManageOrder>

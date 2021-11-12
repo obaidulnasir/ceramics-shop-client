@@ -13,11 +13,13 @@ const Register = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
     handleUserRegister(data.email, data.password, data.userName);
+    reset();
   };
 
   return (

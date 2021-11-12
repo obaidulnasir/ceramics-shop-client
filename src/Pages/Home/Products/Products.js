@@ -14,7 +14,7 @@ const Products = () => {
       <Container>
         <Row xs={1} md={3} className="g-4">
           {products.map(pd=>(
-            <Col>
+            <Col key={pd._insertId}>
               <Card>
                 <Card.Img variant="top" src={pd.img} />
                 <Card.Body>

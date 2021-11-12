@@ -29,6 +29,7 @@ const useFirebase = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
+        handleRegisterUserInfo(user.email);
         console.log(result.user);
       })
       .catch((error) => {
@@ -68,6 +69,7 @@ const useFirebase = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
           setUser(result.user)
+          alert("user Logged in")
         console.log(result.user);
       })
       .catch((error) => {
