@@ -1,10 +1,10 @@
 import { Spinner } from "react-bootstrap";
 import { Redirect, Route } from "react-router";
-import useFirebase from "../hooks/useFirebase";
+import useAuth from "../../../hooks/useAuth";
 
-const PrivateRoute = ({ children, ...rest }) => {
-//   const { user, isLoading } = useAuth();
-  const {user, isLoading}= useFirebase();
+const AdminRoute = ({ children, ...rest }) => {
+
+  const {isLoading, admin}= useAuth();
   if(isLoading){
     return  <Spinner animation="border" variant="success" />
   }
@@ -13,12 +13,12 @@ const PrivateRoute = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={({ location }) =>
-        user.email ? (
+      admin ? (
           children
         ) : (
           <Redirect
             to={{
-              pathname: "/login",
+              pathname: "/",
               state: { from: location },
             }}
           />
@@ -29,4 +29,4 @@ const PrivateRoute = ({ children, ...rest }) => {
 };
 
 
-export default PrivateRoute;
+export default AdminRoute;

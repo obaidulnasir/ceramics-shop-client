@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
-import useFirebase from "../../hooks/useFirebase";
+import useAuth from "../../hooks/useAuth";
 import Navigation from "../shared/Navigation/Navigation";
 
 const OrderPage = () => {
   const [order, setOrder] = useState([]);
-  const {user}= useFirebase();
+  const {user}= useAuth();
 
   const { id } = useParams();
 
@@ -48,7 +48,7 @@ const OrderPage = () => {
                 <input
                   type="name"
                   className="form-control"
-                  defaultValue={user.displayName}
+                  defaultValue={user?.displayName}
                   placeholder="Your Name"
                   {...register("userName", { required: true })}
                 />
@@ -59,7 +59,7 @@ const OrderPage = () => {
                   type="email"
                   className="form-control"
                   placeholder="Enter email"
-                  defaultValue={user.email}
+                  defaultValue={user?.email}
                   {...register("email", { required: true })}
                 />
                 <small id="emailHelp" className="form-text text-muted">

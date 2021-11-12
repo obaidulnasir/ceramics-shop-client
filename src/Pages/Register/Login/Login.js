@@ -2,12 +2,12 @@ import React from 'react';
 import { Container, Button} from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import useFirebase from '../../../hooks/useFirebase';
+import useAuth from '../../../hooks/useAuth';
 import Footer from '../../shared/Footer/Footer';
 import Navigation from '../../shared/Navigation/Navigation';
 
 const Login = () => {
-    const {handleUserLogin, signInWithGoogle}=useFirebase();
+    const {handleUserLogin, signInWithGoogle}=useAuth();
   const {
     register,
     handleSubmit,

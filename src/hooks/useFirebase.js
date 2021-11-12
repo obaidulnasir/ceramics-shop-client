@@ -16,6 +16,8 @@ initializeAuthentication();
 const useFirebase = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
+  // is admin 
+  const [admin, isAdmin]= useState(false);
   const [isLoading, setIsLoading]= useState(true);
 
   const auth = getAuth();
@@ -29,7 +31,6 @@ const useFirebase = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        handleRegisterUserInfo(user.email);
         console.log(result.user);
       })
       .catch((error) => {
@@ -104,15 +105,25 @@ const useFirebase = () => {
     .then((res) => res.json())
     .then((result) => console.log(result));
   };
+/* ==============================
+ admin Check
+  ============================= */
+
+  useEffect(()=>{
+    fetch(`http://localhost:5000/customer/${user?.email}`)
+    .then(res=> res.json())
+    .then(data => isAdmin(data.admin))
+  },[user.email])
 
   return {
     isLoading,
+    admin,
     user,
     error,
     signInWithGoogle,
     handleLogout,
     handleUserLogin,
-    handleUserRegister
+    handleUserRegister,
   };
 };
 

@@ -5,14 +5,16 @@ import Home from "./Pages/Home/Home/Home";
 import Register from './Pages/Register/Register/Register';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import Login from './Pages/Register/Login/Login';
-import PrivateRoute from './PrivateRoute/PageRoute';
 import AllProducts from './Pages/AllProducts/AllProducts';
 import OrderPage from './Pages/OrderPage/OrderPage';
+import PrivateRoute from './Pages/Register/PrivateRoute/PageRoute';
+import AuthProvider from './Pages/AuthProvider/AuthProvider';
 
 
 function App() {
   return (
     <div className="">
+      <AuthProvider>
       <BrowserRouter>
         <Switch>
           <Route path="/home">
@@ -38,6 +40,7 @@ function App() {
           </Route>
         </Switch>
       </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const [products, setProducts]= useState([]);
@@ -23,6 +24,9 @@ const Products = () => {
                    Price: {pd.price} $
                   </Card.Text>
                 </Card.Body>
+                <Link to={`/orderPage/${pd._id}`}>
+                <button >Buy Now</button>
+                </Link>
               </Card>
             </Col>
           ))}
