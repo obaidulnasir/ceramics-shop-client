@@ -18,8 +18,9 @@ const MyOrder = () => {
   // delete order
   //Delete Events
   const handleDelete = (id) => {
-    console.log(id);
-    fetch(`https://polar-gorge-22890.herokuapp.com/deleteOrder/${id}`, {
+    const toDelete = window.confirm('Are you sure to delete this order?')
+    if(toDelete){
+      fetch(`https://polar-gorge-22890.herokuapp.com/deleteOrder/${id}`, {
       method: "DELETE",
       headers: { "content-type": "application/json" },
     })
@@ -31,6 +32,7 @@ const MyOrder = () => {
           //   setControl(false);
         }
       });
+    }
     console.log(id);
   };
 

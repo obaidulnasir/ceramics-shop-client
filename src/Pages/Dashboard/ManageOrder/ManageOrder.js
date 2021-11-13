@@ -11,8 +11,9 @@ const ManageOrder = () => {
 
   // delete order
   const handleDelete = (id) => {
-    console.log(id);
-    fetch(`https://polar-gorge-22890.herokuapp.com/deleteOrder/${id}`, {
+    const toDelete = window.confirm('Are you sure to delete this order?')
+    if(toDelete){
+      fetch(`https://polar-gorge-22890.herokuapp.com/deleteOrder/${id}`, {
       method: "DELETE",
       headers: { "content-type": "application/json" },
     })
@@ -24,14 +25,27 @@ const ManageOrder = () => {
         //   setControl(false);
         }
       });
-    console.log(id);
+    };
+    // console.log(id);
+    // fetch(`https://polar-gorge-22890.herokuapp.com/deleteOrder/${id}`, {
+    //   method: "DELETE",
+    //   headers: { "content-type": "application/json" },
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.deletedCount) {
+    //     //   setControl(true);
+    //     } else {
+    //     //   setControl(false);
+    //     }
+    //   });
+    // console.log(id);
   };
     return (
         <div>
-          <h4>Total Order: {allOrder.length}</h4>
-          <h2>Manage Order</h2>
+          
 
-          <h3>My total orders: {allOrder.length}</h3>
+          <h3>Total orders: {allOrder.length}</h3>
       <div>
         <Table striped bordered hover>
           <thead>
