@@ -22,6 +22,7 @@ const Review = () => {
                       {" "}
                       {rv.review}{" "}
                     </p>
+                    <p>Rating: {rv.rating} <i class="bi bi-star-fill"></i> </p>
                     <footer className="blockquote-footer">
                       {rv.userName}{" "}
                       {/* <cite title="Source Title">Source Title</cite> */}

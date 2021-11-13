@@ -10,7 +10,7 @@ const About = () => {
       <Container>  
         <div className="row w-50 mx-auto text-center my-5">
         <img src="https://i.ibb.co/DRmC48h/TSK-2018.jpg" alt="" />
-            <h3>The next generation of fine porcelain from Ceramics Pottery</h3>
+            <h3 className="my-5">The next generation of fine porcelain from Ceramics Pottery</h3>
           <p>
             CeramicsShop pottery shop is an established shop making and selling
             fine porcelain ceramics since 1989. Opened by Alison who has now

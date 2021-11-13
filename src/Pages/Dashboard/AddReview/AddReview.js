@@ -54,7 +54,17 @@ const AddReview = () => {
                 * We'll never share your email with anyone else.
               </small> */}
             </div>
-            
+            <div className="form-group">
+              <label>Rating</label>
+              <input
+                type="number"
+                min="1" max="5"
+                className="form-control"
+                defaultValue=""
+                placeholder="Give Rating (1-5)"
+                {...register("rating", { required: true })}
+              />
+            </div>
             <div className="form-group">
               <label>Review</label>
               <textarea

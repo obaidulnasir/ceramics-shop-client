@@ -26,10 +26,10 @@ const Navigation = () => {
           </Nav>
           <Nav>
             <Link to="/dashboard" className="nav-link">
-              <button className="btn btn-success">Dashboard</button>
+              <button className="btn btn-outline-light">Dashboard</button>
             </Link>
            {user.email?<button onClick={handleLogout} className="btn btn-danger">Logout</button> :<Link to="/register" className="nav-link">
-              <button className="btn btn-success">Register</button>
+              <button className="btn btn-light">Register</button>
             </Link>}
           </Nav>
         </Navbar.Collapse>

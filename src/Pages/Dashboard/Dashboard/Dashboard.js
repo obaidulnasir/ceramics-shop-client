@@ -12,6 +12,7 @@ import "./Dashboard.css";
 import useAuth from "../../../hooks/useAuth";
 import AdminRoute from "../../Register/PrivateRoute/AdminRoute";
 import "./Dashboard.css";
+import ManageProducts from "../ManageProducts/ManageProducts";
 
 const Dashboard = () => {
   let { path, url } = useRouteMatch();
@@ -48,6 +49,9 @@ const Dashboard = () => {
                 <Link to={`${url}/addProduct`}>
                   <li className="dashboard-menu">Add Product</li>
                 </Link>
+                <Link to={`${url}/manageProduct`}>
+                  <li className="dashboard-menu">Manage Product</li>
+                </Link>
               </div>
             )}
           </div>
@@ -72,6 +76,9 @@ const Dashboard = () => {
             </AdminRoute>
             <AdminRoute exact path={`${path}/addProduct`}>
               <AddProducts></AddProducts>
+            </AdminRoute>
+            <AdminRoute exact path={`${path}/manageProduct`}>
+              <ManageProducts></ManageProducts>
             </AdminRoute>
           </Switch>
         </div>
