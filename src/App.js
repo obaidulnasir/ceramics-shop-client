@@ -9,6 +9,7 @@ import AllProducts from './Pages/AllProducts/AllProducts';
 import OrderPage from './Pages/OrderPage/OrderPage';
 import PrivateRoute from './Pages/Register/PrivateRoute/PrivateRoute';
 import AuthProvider from './Pages/AuthProvider/AuthProvider';
+import About from './Pages/About/About';
 
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route path="/products">
             <AllProducts></AllProducts>
+          </Route>
+          <Route path="/about">
+            <About></About>
           </Route>
           <Route path="/register">
             <Register></Register>

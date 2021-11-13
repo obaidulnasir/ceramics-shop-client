@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Footer from "../shared/Footer/Footer";
 import Navigation from "../shared/Navigation/Navigation";
 
 const AllProducts = () => {
@@ -32,23 +33,25 @@ const AllProducts = () => {
       <Row xs={1} md={4} className="g-4">
           {allProducts.map(pd=>(
             <Col key={pd._id}>
-              <Card>
+              <Card className="pb-3">
                 <Card.Img variant="top" width="70%" src={pd.img} />
                 <Card.Body>
                   <Card.Title>{pd.productName}</Card.Title>
-                  <Card.Text>
+                  <Card.Text >
                    Price: {pd.price} $
                   </Card.Text>
                 </Card.Body>
-                <Link to={`/orderPage/${pd._id}`}>
-                <button onClick={()=>handleSingleProduct(pd._id)}>Buy Now</button>
+               <div className="text-center">
+               <Link to={`/orderPage/${pd._id}`}>
+                <button className="btn btn-outline-dark" onClick={()=>handleSingleProduct(pd._id)}>Buy Now</button>
                 </Link>
-              
+                </div>              
               </Card>
             </Col>
           ))}
         </Row>
       </Container>
+      <Footer></Footer>
     </div>
   );
 };

@@ -23,10 +23,15 @@ const Products = () => {
                   <Card.Text>
                    Price: {pd.price} $
                   </Card.Text>
+                  <Card.Text className="p-2 text-muted">
+                   {pd.description.slice(0,200)}....
+                  </Card.Text>
                 </Card.Body>
+                <div className="text-center">
                 <Link to={`/orderPage/${pd._id}`}>
-                <button >Buy Now</button>
+                <button className="btn btn-dark" >Buy Now</button>
                 </Link>
+                </div>
               </Card>
             </Col>
           ))}

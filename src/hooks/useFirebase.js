@@ -68,6 +68,7 @@ const useFirebase = () => {
       })
       .catch((error) => {
         setError(error.message)
+        alert(error);
       });
   };
 

@@ -29,7 +29,7 @@ const AddReview = () => {
   return (
     <div>
       <Container>
-        <div className="row w-50 mx-auto">
+        <div className="row w-50 mx-auto my-5">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-group">
               <label>Your Name</label>
@@ -62,19 +62,10 @@ const AddReview = () => {
                 rows="3"
                 {...register("review",{ required: true } )}
               ></textarea>
+              {errors.password && <span>This field is required</span>}
             </div>
-            {/* <div className="form-group">
-                <label>Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="Password"
-                  {...register("password",  { required: true })}
-                />
-                {errors.password && <span>This field is required</span>}
-              </div> */}
-
-            <input type="submit" value="Add Review" />
+            
+            <input className="btn btn-dark mt-3" type="submit" value="Add Review" />
           </form>
         </div>
       </Container>

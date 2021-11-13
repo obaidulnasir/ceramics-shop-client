@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Modal, Table, Button } from "react-bootstrap";
+import { Table} from "react-bootstrap";
 import useAuth from "../../../hooks/useAuth";
 
 const MyOrder = () => {
@@ -35,8 +35,8 @@ const MyOrder = () => {
   };
 
   return (
-    <div>
-      <h3>My total orders: {myOrder.length}</h3>
+    <div className="my-5">
+      <h3>Total orders: {myOrder.length}</h3>
       <div>
         <Table striped bordered hover>
           <thead>
