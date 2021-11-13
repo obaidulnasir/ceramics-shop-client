@@ -32,6 +32,7 @@ const useFirebase = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
+        // handleRegisterUserInfo(user?.email, user?.displayName)
         const destination = location?.state?.from||'/';
           history.replace(destination);
         console.log(result.user);
@@ -61,6 +62,7 @@ const useFirebase = () => {
       .then((result) => {
         setUser(result.user);
         alert(`Welcome  ${name}, your registration success.`)
+        handleRegisterUserInfo(email, name);
         const destination = location.state.from||'/';
         history.replace(destination);
         handleRegisterUserInfo(email, name);

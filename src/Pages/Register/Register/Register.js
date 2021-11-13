@@ -20,6 +20,7 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    console.log(data)
     handleUserRegister(data.email, data.password, data.userName, location, history);
     reset();
   };
