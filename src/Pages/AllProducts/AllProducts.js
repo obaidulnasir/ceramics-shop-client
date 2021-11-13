@@ -40,6 +40,9 @@ const AllProducts = () => {
                   <Card.Text >
                    Price: {pd.price} $
                   </Card.Text>
+                  <Card.Text>
+                    {pd.description.slice(0, 255)}
+                  </Card.Text>
                 </Card.Body>
                <div className="text-center">
                <Link to={`/orderPage/${pd._id}`}>
