@@ -56,11 +56,14 @@ const useFirebase = () => {
   };
 
   //   user registration
-  const handleUserRegister = (email, password, name) => {
+  const handleUserRegister = (email, password, name, location, history) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         setUser(result.user);
-        handleRegisterUserInfo(email);
+        alert(`Welcome  ${name}, your registration success.`)
+        const destination = location.state.from||'/';
+        history.replace(destination);
+        handleRegisterUserInfo(email, name);
         console.log(name);
       })
       .catch((error) => {
@@ -101,12 +104,12 @@ const useFirebase = () => {
  /*  ================================
   Collect User Email
   ================================ */
-  const handleRegisterUserInfo= (email)=>{
+  const handleRegisterUserInfo= (email,name)=>{
     console.log(email)
     fetch("https://polar-gorge-22890.herokuapp.com/addCustomer", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ email }),
+      body: JSON.stringify({ email, name }),
     })
     .then((res) => res.json())
     .then((result) => console.log(result));

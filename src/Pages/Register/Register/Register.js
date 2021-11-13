@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from "../../../hooks/useAuth";
 import Footer from "../../shared/Footer/Footer";
 import Navigation from "../../shared/Navigation/Navigation";
@@ -10,6 +10,8 @@ import Navigation from "../../shared/Navigation/Navigation";
 
 const Register = () => {
   const {handleUserRegister, signInWithGoogle}=useAuth();
+  const location=useLocation();
+  const history = useHistory();
   const {
     register,
     handleSubmit,
@@ -18,7 +20,7 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    handleUserRegister(data.email, data.password, data.userName);
+    handleUserRegister(data.email, data.password, data.userName, location, history);
     reset();
   };
 
@@ -35,7 +37,7 @@ const Register = () => {
                   type="name"
                   className="form-control"
                   placeholder="Your Name"
-                  {...register("userName")}
+                  {...register("userName", { required: true })}
                 />
               </div>
               <div className="form-group">
@@ -44,7 +46,7 @@ const Register = () => {
                   type="email"
                   className="form-control"
                   placeholder="Enter email"
-                  {...register("email")}
+                  {...register("email", { required: true })}
                 />
                 <small id="emailHelp" className="form-text text-muted">
                   We'll never share your email with anyone else.
@@ -56,7 +58,7 @@ const Register = () => {
                   type="password"
                   className="form-control"
                   placeholder="Password"
-                  {...register("password")}
+                  {...register("password", { required: true })}
                 />
                  {errors.exampleRequired && <span>This field is required</span>}
               </div>

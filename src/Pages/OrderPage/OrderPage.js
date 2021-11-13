@@ -107,6 +107,7 @@ const OrderPage = () => {
                   rows="3"
                   {...register("address")}
                 ></textarea>
+                {errors.exampleRequired && <span>This field is required</span>}
               </div>
               <input className="btn btn-outline-dark my-2" type="submit" value="Place Order" />
             </form>
