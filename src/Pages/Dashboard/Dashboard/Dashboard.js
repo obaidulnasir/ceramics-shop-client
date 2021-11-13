@@ -10,6 +10,7 @@ import AddReview from "../AddReview/AddReview";
 import PayNow from "../PayNow/PayNow";
 import "./Dashboard.css";
 import useAuth from "../../../hooks/useAuth";
+import AdminRoute from "../../Register/PrivateRoute/AdminRoute";
 
 const Dashboard = () => {
   let { path, url } = useRouteMatch();
@@ -47,23 +48,6 @@ const Dashboard = () => {
                       </Link>
                     </div>
                   )}
-
-                  {/* <Link to={`${url}/BookingList`}>
-                      <li className="dashboard-menu mt-5">Booking list</li>
-                    </Link>
-                    <Link to={`${url}/review`}>
-                      <li className="dashboard-menu mt-5">Review</li>
-                    </Link> */}
-
-                  {/* <div className="admin-dashboard">
-                      <li className="dashboard-menu mt-5">Orders list</li>
-                      <Link to={`${url}/addService`}>
-                        <li className="dashboard-menu">Add Service</li>
-                      </Link>
-                      <Link to={`${url}/makeAdmin`}>
-                        <li className="dashboard-menu">Make Admin</li>
-                      </Link>
-                    </div> */}
                 </div>
               </div>
               <div className="col-md-9 col-sm-9">
@@ -77,15 +61,15 @@ const Dashboard = () => {
                   <Route exact path={`${path}/pay`}>
                     <PayNow></PayNow>
                   </Route>
-                  <Route exact path={`${path}/manageOrder`}>
+                  <AdminRoute exact path={`${path}/manageOrder`}>
                         <ManageOrder></ManageOrder>
-                    </Route>
-                    <Route exact path={`${path}/makeAdmin`}>
+                    </AdminRoute>
+                    <AdminRoute exact path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
-                    </Route>
-                    <Route exact path={`${path}/addProduct`}>
+                    </AdminRoute>
+                    <AdminRoute exact path={`${path}/addProduct`}>
                         <AddProducts></AddProducts>
-                    </Route>
+                    </AdminRoute>
                 </Switch>
               </div>
             </div>

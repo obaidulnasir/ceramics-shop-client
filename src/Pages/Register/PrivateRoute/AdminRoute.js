@@ -4,7 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 
 const AdminRoute = ({ children, ...rest }) => {
 
-  const {isLoading, admin}= useAuth();
+  const {isLoading, admin, user}= useAuth();
   if(isLoading){
     return  <Spinner animation="border" variant="success" />
   }
@@ -13,7 +13,7 @@ const AdminRoute = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={({ location }) =>
-      admin ? (
+     user.email && admin ? (
           children
         ) : (
           <Redirect

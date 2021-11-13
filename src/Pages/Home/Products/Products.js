@@ -11,12 +11,12 @@ const Products = () => {
   },[])
   return (
     <div className="my-5">
-      <h3>New Collection</h3>
+      <h3 className="text-center my-3">New Collection</h3>
       <Container>
         <Row xs={1} md={3} className="g-4">
           {products.slice(4, 10).map(pd=>(
             <Col key={pd._insertId}>
-              <Card>
+              <Card className="p-3">
                 <Card.Img variant="top" src={pd.img} />
                 <Card.Body>
                   <Card.Title>{pd.productName}</Card.Title>

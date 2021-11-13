@@ -103,7 +103,7 @@ const OrderPage = () => {
           </div>
           <div className="col-md-6">
             <>
-              <Card className="text-center">
+              <Card className="text-center p-4">
                 <Card.Img rounded width="70%" src={order.img} />
                 <Card.Title className="my-3 fs-2 fw-bolder">{order.productName}</Card.Title>
                 <Card.Title className="my-3 fs-4">Price: {order.price} $</Card.Title>
