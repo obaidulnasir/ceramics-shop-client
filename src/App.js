@@ -7,7 +7,7 @@ import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import Login from './Pages/Register/Login/Login';
 import AllProducts from './Pages/AllProducts/AllProducts';
 import OrderPage from './Pages/OrderPage/OrderPage';
-import PrivateRoute from './Pages/Register/PrivateRoute/PageRoute';
+import PrivateRoute from './Pages/Register/PrivateRoute/PrivateRoute';
 import AuthProvider from './Pages/AuthProvider/AuthProvider';
 
 

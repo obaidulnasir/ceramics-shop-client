@@ -1,13 +1,15 @@
 import React from 'react';
 import { Container, Button} from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import Footer from '../../shared/Footer/Footer';
 import Navigation from '../../shared/Navigation/Navigation';
 
 const Login = () => {
     const {handleUserLogin, signInWithGoogle}=useAuth();
+  const location=useLocation();
+  const history = useHistory();
   const {
     register,
     handleSubmit,
@@ -15,9 +17,11 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    handleUserLogin(data.email, data.password);
-    
+    handleUserLogin(data.email, data.password, location, history);
   };
+  const handleGoogleSignIn = () => {
+    signInWithGoogle(location, history)
+}
     return (
         <div>
             <Navigation></Navigation>
@@ -53,8 +57,7 @@ const Login = () => {
             </form>
             <Link to="/register">New User? Register</Link>
             <p>------------------------------</p>
-            <Button onClick={signInWithGoogle} className="px-5 py-2 mt-3 " variant="outline-dark">Sign in with Google</Button>
-          </div>
+            <Button onClick={handleGoogleSignIn} variant="contained">Google Sign In</Button>          </div>
         </div>
       </Container>
       <Footer></Footer>

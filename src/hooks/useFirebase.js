@@ -8,8 +8,8 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
-
 import initializeAuthentication from "../Firebase/firebase.init";
+
 
 initializeAuthentication();
 
@@ -25,12 +25,15 @@ const useFirebase = () => {
   const provider = new GoogleAuthProvider();
 
   //   google login
-  const signInWithGoogle = () => {
+  const signInWithGoogle = (location, history) => {
+ 
     setIsLoading(true);
     signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
         setUser(user);
+        const destination = location?.state?.from||'/';
+          history.replace(destination);
         console.log(result.user);
       })
       .catch((error) => {
@@ -66,11 +69,13 @@ const useFirebase = () => {
   };
 
   //   user email password login
-  const handleUserLogin = (email, password) => {
+  const handleUserLogin = (email, password, location, history) => {
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
-          setUser(result.user)
-          alert("user Logged in")
+          setUser(result.user);
+          alert("user Logged in");
+          const destination = location.state.from||'/';
+          history.replace(destination);
         console.log(result.user);
       })
       .catch((error) => {
@@ -78,6 +83,7 @@ const useFirebase = () => {
         console.log(error.message);
       });
   };
+
   //   on auth stage change
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
