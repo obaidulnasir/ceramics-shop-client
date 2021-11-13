@@ -39,7 +39,7 @@ const MyOrder = () => {
   return (
     <div className="my-5">
       <h3>Total orders: {myOrder.length}</h3>
-      <div>
+      <div className="table-responsive">
         <Table striped bordered hover>
           <thead>
             <tr>

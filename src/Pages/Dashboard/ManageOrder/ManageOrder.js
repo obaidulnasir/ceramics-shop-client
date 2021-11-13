@@ -20,33 +20,20 @@ const ManageOrder = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
-        //   setControl(true);
+       ;
         } else {
-        //   setControl(false);
+       
         }
       });
     };
-    // console.log(id);
-    // fetch(`https://polar-gorge-22890.herokuapp.com/deleteOrder/${id}`, {
-    //   method: "DELETE",
-    //   headers: { "content-type": "application/json" },
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.deletedCount) {
-    //     //   setControl(true);
-    //     } else {
-    //     //   setControl(false);
-    //     }
-    //   });
-    // console.log(id);
+    
   };
     return (
         <div>
           
 
           <h3>Total orders: {allOrder.length}</h3>
-      <div>
+      <div className="table-responsive">
         <Table striped bordered hover>
           <thead>
             <tr>
