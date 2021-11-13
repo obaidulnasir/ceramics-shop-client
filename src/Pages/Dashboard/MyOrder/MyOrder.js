@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Table } from "react-bootstrap";
+import { Modal, Table, Button } from "react-bootstrap";
 import useAuth from "../../../hooks/useAuth";
 
 const MyOrder = () => {
   const { user } = useAuth();
   const [myOrder, setMyOrder] = useState([]);
-//   const [control, setControl] = useState(false);
+  //   const [control, setControl] = useState(false);
+
+  
 
   useEffect(() => {
     fetch(`https://polar-gorge-22890.herokuapp.com/myOrder/${user.email}`)
@@ -24,9 +26,9 @@ const MyOrder = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
-        //   setControl(true);
+          //   setControl(true);
         } else {
-        //   setControl(false);
+          //   setControl(false);
         }
       });
     console.log(id);
@@ -34,7 +36,6 @@ const MyOrder = () => {
 
   return (
     <div>
-      
       <h3>My total orders: {myOrder.length}</h3>
       <div>
         <Table striped bordered hover>
@@ -53,15 +54,16 @@ const MyOrder = () => {
                 <td>{index + 1}</td>
                 <td>{mo?.product}</td>
                 <td>{mo?.email}</td>
-                <td>{mo?.name}</td>
-                <button
+                <td>{mo?.date}</td>
+               <td> <button
                   onClick={() => {
                     handleDelete(mo._id);
                   }}
                   className="btn bg-danger p-2"
-                >
-                  Delete
-                </button>
+                >Delete
+                </button></td>
+                {/* modal */}
+                
               </tr>
             </tbody>
           ))}

@@ -29,9 +29,9 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
-          <Route path="/orderPage/:id">
+          <PrivateRoute path="/orderPage/:id">
             <OrderPage></OrderPage>
-          </Route>
+          </PrivateRoute>
           <PrivateRoute path="/dashboard">
             <Dashboard></Dashboard>
           </PrivateRoute>

@@ -81,6 +81,16 @@ const OrderPage = () => {
                 />
               </div>
               <div className="form-group">
+                <label>Date</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  defaultValue= {new Date().toLocaleString()}
+                  placeholder=""
+                  {...register("date", { required: true })}
+                />
+              </div>
+              <div className="form-group">
                 <label>Phone</label>
                 <input
                   type="text"
