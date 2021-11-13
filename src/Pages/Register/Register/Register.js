@@ -35,7 +35,7 @@ const Register = () => {
                 <label>Your Name</label>
                 <input
                   type="name"
-                  className="form-control"
+                  className="form-control w-75"
                   placeholder="Your Name"
                   {...register("userName", { required: true })}
                 />
@@ -44,7 +44,7 @@ const Register = () => {
                 <label>Email address</label>
                 <input
                   type="email"
-                  className="form-control"
+                  className="form-control w-75"
                   placeholder="Enter email"
                   {...register("email", { required: true })}
                 />
@@ -56,18 +56,21 @@ const Register = () => {
                 <label>Password</label>
                 <input
                   type="password"
-                  className="form-control"
+                  className="form-control w-75"
                   placeholder="Password"
                   {...register("password", { required: true })}
                 />
                  {errors.exampleRequired && <span>This field is required</span>}
               </div>
 
-              <input type="submit" value="Register" />
+              <input className="btn btn-outline-dark  fw-bold mt-2" type="submit" value="Register" />
             </form>
             <Link to="/login">Already Registered? Login</Link>
             <p>------------------------------</p>
-            <Button onClick={signInWithGoogle} className="px-5 py-2 mt-3 " variant="outline-dark">Sign in with Google</Button>
+            <Button onClick={signInWithGoogle} className="px-5 py-2 mt-3 " variant="outline-dark"><i class="bi bi-google fs-5"></i> Sign in with Google</Button>
+          </div>
+          <div className="col-md-6">
+            <img style={{ filter: "grayscale(100%)" }} width="80%" src="https://i.ibb.co/Lh9JX4M/04086f4b8b394ba7bdaa.jpg" alt="" />
           </div>
         </div>
       </Container>
