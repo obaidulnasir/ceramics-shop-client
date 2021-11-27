@@ -13,7 +13,6 @@ const AddReview = () => {
   } = useForm();
 
   const onSubmit=(data)=>{
-    console.log(data);
     fetch("https://polar-gorge-22890.herokuapp.com/addReview", {
         method: "POST",
         headers: { "content-type": "application/json" },

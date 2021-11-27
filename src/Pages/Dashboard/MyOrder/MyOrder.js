@@ -6,14 +6,11 @@ const MyOrder = () => {
   const { user } = useAuth();
   const [myOrder, setMyOrder] = useState([]);
   //   const [control, setControl] = useState(false);
-
-  
-
   useEffect(() => {
     fetch(`https://polar-gorge-22890.herokuapp.com/myOrder/${user.email}`)
       .then((res) => res.json())
       .then((data) => setMyOrder(data));
-  }, [user?.email, myOrder]);
+  }, [myOrder, user.email]);
 
   // delete order
   //Delete Events
@@ -32,8 +29,7 @@ const MyOrder = () => {
           //   setControl(false);
         }
       });
-    }
-    console.log(id);
+    };
   };
 
   return (

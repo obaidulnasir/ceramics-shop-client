@@ -20,7 +20,6 @@ const AddProducts = () => {
       .then((data) => {
         alert("product added successfully!!");
         reset();
-        console.log(data);
       });
   };
   return (

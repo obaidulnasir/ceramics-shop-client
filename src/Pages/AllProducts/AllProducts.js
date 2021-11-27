@@ -15,7 +15,7 @@ const AllProducts = () => {
 
 //   Single product 
   const handleSingleProduct = (id)=>{
-    console.log(id);
+    
     fetch(`https://polar-gorge-22890.herokuapp.com/${id}`, {
       method: "GET",
       // headers: { "content-type": "application/json" },

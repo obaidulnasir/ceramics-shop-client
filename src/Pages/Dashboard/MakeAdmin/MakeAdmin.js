@@ -11,7 +11,6 @@ const MakeAdmin = () => {
       } = useForm();
     
       const onSubmit=(data)=>{
-        console.log(data);
         fetch("https://polar-gorge-22890.herokuapp.com/makeAdmin", {
             method: "PUT",
             headers: { "content-type": "application/json" },
@@ -21,7 +20,6 @@ const MakeAdmin = () => {
           .then(data => {
                 alert("Make admin successfully!!")
                 reset();
-                console.log(data)
           })
       }
     return (
