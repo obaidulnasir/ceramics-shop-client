@@ -38,7 +38,7 @@ const ManageOrder = () => {
           <thead>
             <tr>
               <th>#</th>
-              <th>Name</th>
+              <th>Product Name</th>
               <th>Email</th>
               <th>Date</th>
               <th>Action</th>
@@ -50,7 +50,7 @@ const ManageOrder = () => {
                 <td>{index + 1}</td>
                 <td>{mo?.product}</td>
                 <td>{mo?.email}</td>
-                <td>{mo?.name}</td>
+                <td>{mo?.date}</td>
                 <button
                   onClick={() => {
                     handleDelete(mo._id);
